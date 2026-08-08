@@ -16,14 +16,22 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        /* LD MARMORARIA */
+        solid:
+          "rounded-sm bg-ivory text-ink uppercase tracking-[0.18em] text-[0.6875rem] font-semibold transition-all duration-500 hover:bg-sand hover:shadow-[0_18px_40px_-24px_rgba(0,0,0,0.9)] [&_svg]:transition-transform [&_svg]:duration-500 hover:[&_svg]:translate-x-1",
+        line: "rounded-sm border border-current/35 bg-transparent uppercase tracking-[0.18em] text-[0.6875rem] font-semibold transition-all duration-500 hover:border-current hover:bg-foreground/8 [&_svg]:transition-transform [&_svg]:duration-500 hover:[&_svg]:translate-x-1",
+        ink: "rounded-sm bg-ink text-ivory uppercase tracking-[0.18em] text-[0.6875rem] font-semibold transition-all duration-500 hover:bg-ink/85 [&_svg]:transition-transform [&_svg]:duration-500 hover:[&_svg]:translate-x-1",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
+        xl: "h-14 px-8",
+        pill: "h-12 px-7",
       },
     },
+
     defaultVariants: {
       variant: "default",
       size: "default",
