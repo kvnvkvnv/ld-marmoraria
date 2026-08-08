@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Navbar } from "@/components/site/Navbar";
+import { Footer } from "@/components/site/Footer";
+import { WhatsAppButton } from "@/components/site/WhatsAppButton";
+
 
 function NotFoundComponent() {
   return (
@@ -77,21 +81,50 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "LD Marmoraria | Mármores, Granitos e Projetos em Jacareí" },
+      {
+        name: "description",
+        content:
+          "LD Marmoraria — Mármores, granitos, materiais importados e pedras decorativas para projetos personalizados em Jacareí e região.",
+      },
+      { property: "og:site_name", content: "LD Marmoraria" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "theme-color", content: "#0b0a09" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Manrope:wght@300;400;500;600&display=swap",
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "LD Marmoraria",
+          description:
+            "Marmoraria especializada em mármores, granitos, materiais importados e pedras decorativas.",
+          foundingDate: "2008",
+          telephone: "+55 12 3966-8079",
+          email: "ldmarmoraria@hotmail.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Rua Harold Barnsley Holland, 1151",
+            addressLocality: "Jacareí",
+            addressRegion: "SP",
+            addressCountry: "BR",
+          },
+          areaServed: "Jacareí e região, São Paulo",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -102,7 +135,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
@@ -119,8 +152,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Navbar />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <Footer />
+      <WhatsAppButton />
     </QueryClientProvider>
   );
 }
+

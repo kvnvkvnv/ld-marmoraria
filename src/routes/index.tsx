@@ -1,24 +1,54 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/site/Hero";
+import { Manifesto } from "@/components/site/Manifesto";
+import { Stats } from "@/components/site/Stats";
+import { Materials } from "@/components/site/Materials";
+import { Projects } from "@/components/site/Projects";
+import { Process } from "@/components/site/Process";
+import { Architects } from "@/components/site/Architects";
+import { Differentials } from "@/components/site/Differentials";
+import { CtaBanner } from "@/components/site/CtaBanner";
+import { About } from "@/components/site/About";
+import { Testimonials } from "@/components/site/Testimonials";
+import { FaqSection } from "@/components/site/FaqSection";
+import { Contact } from "@/components/site/Contact";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "LD Marmoraria | Mármores, Granitos e Projetos em Jacareí";
+const description =
+  "LD Marmoraria — Mármores, granitos, materiais importados e pedras decorativas para projetos personalizados em Jacareí e região.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main>
+      <Hero />
+      <Manifesto />
+      <Stats />
+      <Materials />
+      <Projects />
+      <Process />
+      <Architects />
+      <Differentials />
+      <CtaBanner />
+      <About />
+      <Testimonials />
+      <FaqSection />
+      <Contact />
+    </main>
   );
 }
