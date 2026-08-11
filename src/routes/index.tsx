@@ -12,6 +12,7 @@ import { About } from "@/components/site/About";
 import { Testimonials } from "@/components/site/Testimonials";
 import { FaqSection } from "@/components/site/FaqSection";
 import { Contact } from "@/components/site/Contact";
+import { Marquee } from "@/components/site/motion";
 
 const title = "LD Marmoraria | Mármores, Granitos e Projetos em Jacareí";
 const description =
@@ -39,6 +40,18 @@ function Index() {
       <Hero />
       <Manifesto />
       <Stats />
+      <section className="border-y border-border/60 bg-ink py-8">
+        <Marquee
+          items={[
+            "Mármores",
+            "Granitos",
+            "Quartzitos",
+            "Importados",
+            "Pedras decorativas",
+            "Projetos sob medida",
+          ]}
+        />
+      </section>
       <Materials />
       <Projects />
       <Process />
