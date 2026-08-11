@@ -4,6 +4,7 @@ import { ArrowRight, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { whatsappLink } from "@/lib/site";
 import heroImg from "@/assets/hero.jpg";
+import { SplitWords, Magnetic } from "./motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -54,16 +55,15 @@ export function Hero() {
           LD Marmoraria
         </motion.p>
 
-        <motion.h1
-          className="mt-6 max-w-4xl font-display text-[2.65rem] leading-[1.02] tracking-tight text-ivory sm:text-6xl lg:text-7xl xl:text-[5.5rem]"
-          initial={reduced ? false : { opacity: 0, y: 26 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.35, ease }}
-        >
-          Pedras que transformam
-          <br />
-          <span className="italic text-sand">espaços em experiências.</span>
-        </motion.h1>
+        <h1 className="mt-6 max-w-4xl font-display text-[2.65rem] leading-[1.02] tracking-tight text-ivory sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+          <SplitWords text="Pedras que transformam" delay={0.35} className="block" />
+          <SplitWords
+            text="espaços em experiências."
+            delay={0.55}
+            italicFrom={0}
+            className="block"
+          />
+        </h1>
 
         <motion.p
           className="mt-7 max-w-lg text-[0.95rem] leading-relaxed text-ivory/65"
@@ -80,14 +80,18 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7, ease }}
         >
-          <Button asChild variant="solid" size="xl">
-            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
-              Solicitar orçamento <ArrowRight />
-            </a>
-          </Button>
-          <Button asChild variant="line" size="xl" className="text-ivory">
-            <a href="#projetos">Ver projetos</a>
-          </Button>
+          <Magnetic>
+            <Button asChild variant="solid" size="xl">
+              <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">
+                Solicitar orçamento <ArrowRight />
+              </a>
+            </Button>
+          </Magnetic>
+          <Magnetic>
+            <Button asChild variant="line" size="xl" className="text-ivory">
+              <a href="#projetos">Ver projetos</a>
+            </Button>
+          </Magnetic>
         </motion.div>
 
         <motion.div
