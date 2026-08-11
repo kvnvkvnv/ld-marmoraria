@@ -41,7 +41,7 @@ function ProjetosPage() {
         eyebrow="Projetos"
         title="Projetos que"
         accent="falam por si."
-        text="Conheça alguns dos trabalhos realizados pela LD Marmoraria. As imagens desta galeria são substituíveis pelos registros reais dos projetos."
+        text="Registros reais de cozinhas, áreas gourmet, escadas, bancadas e lavabos executados pela LD Marmoraria."
       />
 
       <section className="surface-light py-16 sm:py-24">

@@ -75,7 +75,7 @@ export function Projects() {
         </div>
 
         <div className="mt-16">
-          <ProjectGrid items={PROJECTS} />
+          <ProjectGrid items={PROJECTS.slice(0, 6)} />
         </div>
 
         <Reveal delay={0.1}>
