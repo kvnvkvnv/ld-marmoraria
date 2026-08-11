@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { Tilt } from "./motion";
 import { MATERIALS } from "@/data/content";
 
 export function Materials() {
@@ -26,6 +27,7 @@ export function Materials() {
         <div className="mt-16 grid gap-px overflow-hidden rounded-sm border border-border/60 bg-border/60 sm:grid-cols-2 lg:grid-cols-4">
           {MATERIALS.map((m, i) => (
             <Reveal key={m.slug} delay={i * 0.07}>
+              <Tilt className="h-full">
               <Link
                 to="/materiais"
                 hash={m.slug}
@@ -51,6 +53,7 @@ export function Materials() {
                   </span>
                 </div>
               </Link>
+              </Tilt>
             </Reveal>
           ))}
         </div>
