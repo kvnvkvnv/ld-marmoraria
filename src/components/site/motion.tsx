@@ -175,7 +175,7 @@ export function Marquee({
     <div className={`overflow-hidden ${className ?? ""}`} aria-hidden>
       <motion.div
         className="flex w-max items-center gap-12 whitespace-nowrap"
-        animate={reduced ? undefined : { x: ["0%", "-50%"] }}
+        animate={reduced ? {} : { x: ["0%", "-50%"] }}
         transition={{ duration, ease: "linear", repeat: Infinity }}
       >
         {row.map((item, i) => (
@@ -212,7 +212,7 @@ export function ParallaxLayer({
 
   return (
     <div ref={ref} className={className}>
-      <motion.div style={reduced ? undefined : { y }}>{children}</motion.div>
+      <motion.div style={reduced ? {} : { y }}>{children}</motion.div>
     </div>
   );
 }
