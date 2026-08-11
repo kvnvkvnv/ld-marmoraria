@@ -29,7 +29,7 @@ export const SITE = {
   email: "ldmarmoraria@hotmail.com",
   /** EDITÁVEL: confirme o perfil oficial antes de publicar. */
   instagram: "https://www.instagram.com/ldmarmoraria/",
-  maps: "https://www.google.com/maps/search/?api=1&query=Rua+Harold+Barnsley+Holland+1151+Jacarei+SP",
+  maps: "https://maps.app.goo.gl/zfyVXbjWyN37fnMF7",
 } as const;
 
 export const NAV_LINKS = [
